@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}">Insert title here</title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+	<form th:action="@{/calculadora/}" method="post" th:object="${datos}">
+	
+	<label for="num1">Número 1</label>
+  	<div>
+		<input type="number" name="num1" id="num1" th:field="*{a}">
+  	</div>
+  	
+	<div>
+		<input type="radio" id="suma" name="operacion" value="+" th:field="*{operacion}">
+  		<label for="suma">Suma</label><br>
+	</div>
+	<div>
+		<input type="radio" id="resta" name="operacion" value="-" th:field="*{operacion}">
+  		<label for="resta">Resta</label><br>
+	</div>
+  	<div>
+  		<input type="radio" id="producto" name="operacion" value="x" th:field="*{operacion}">
+  		<label for="producto">Producto</label>
+  	</div>
+  	<div>
+  		<input type="radio" id="division" name="operacion" value="/" th:field="*{operacion}">
+  		<label for="division">División</label>
+  	</div>
+  	
+  	<label for="num2">Número 2</label>
+  	<div>
+		<input type="number" name="num2" id="num2" th:field="*{b}">
+  	</div>
+
+  	<input type="submit" value="Enviar">
+  	<div>
+  		<td th:if="${error}" th:text="${error}">¿Error?</td>
+  	</div>
+  	</form>
+</body>
+</html>
